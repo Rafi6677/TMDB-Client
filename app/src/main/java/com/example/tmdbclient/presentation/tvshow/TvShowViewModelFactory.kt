@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tmdbclient.domain.usecase.GetTvShowsUseCase
 import com.example.tmdbclient.domain.usecase.UpdateTvShowsUseCase
 
-class TvShowViewModelProvider(
+class TvShowViewModelFactory(
     private val getTvShowsUseCase: GetTvShowsUseCase,
     private val updateTvShowsUseCase: UpdateTvShowsUseCase
 ) : ViewModelProvider.Factory {

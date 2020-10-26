@@ -1,10 +1,10 @@
 package com.example.tmdbclient.domain.usecase
 
 import com.example.tmdbclient.data.model.artist.Artist
-import com.example.tmdbclient.domain.repository.ArtistsRepository
+import com.example.tmdbclient.domain.repository.ArtistRepository
 
-class UpdateArtistsUseCase(private val artistsRepository: ArtistsRepository) {
+class UpdateArtistsUseCase(private val artistRepository: ArtistRepository) {
 
-    suspend fun execute(): List<Artist> ?= artistsRepository.updateArtists()
+    suspend fun execute(): List<Artist> ?= artistRepository.updateArtists()
 
 }

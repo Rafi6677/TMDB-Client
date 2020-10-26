@@ -5,14 +5,14 @@ import com.example.tmdbclient.data.model.artist.Artist
 import com.example.tmdbclient.data.repository.artist.datasource.ArtistCacheDataSource
 import com.example.tmdbclient.data.repository.artist.datasource.ArtistLocalDataSource
 import com.example.tmdbclient.data.repository.artist.datasource.ArtistRemoteDataSource
-import com.example.tmdbclient.domain.repository.ArtistsRepository
+import com.example.tmdbclient.domain.repository.ArtistRepository
 import java.lang.Exception
 
 class ArtistRepositoryImpl(
     private val artistRemoteDataSource: ArtistRemoteDataSource,
     private val artistLocalDataSource: ArtistLocalDataSource,
     private val artistCacheDataSource: ArtistCacheDataSource
-): ArtistsRepository {
+): ArtistRepository {
 
     override suspend fun getArtists(): List<Artist>? {
         return getArtistsFromCache()
