@@ -9,7 +9,7 @@ import com.example.tmdbclient.R
 import com.example.tmdbclient.data.model.movie.Movie
 import com.example.tmdbclient.databinding.ListItemBinding
 
-class MovieAdapter() : RecyclerView.Adapter<MyViewHolder>() {
+class MovieAdapter() : RecyclerView.Adapter<MovieViewHolder>() {
 
     private val movieList = ArrayList<Movie>()
 
@@ -18,7 +18,7 @@ class MovieAdapter() : RecyclerView.Adapter<MyViewHolder>() {
         movieList.addAll(movies)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding: ListItemBinding = DataBindingUtil.inflate(
             layoutInflater,
@@ -27,20 +27,20 @@ class MovieAdapter() : RecyclerView.Adapter<MyViewHolder>() {
             false
         )
 
-        return MyViewHolder(binding)
+        return MovieViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
        return movieList.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(movieList[position])
     }
 
 }
 
-class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class MovieViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(movie: Movie) {
         binding.titleTextView.text = movie.title
