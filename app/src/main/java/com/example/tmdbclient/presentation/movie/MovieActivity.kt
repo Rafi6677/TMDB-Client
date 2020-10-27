@@ -2,8 +2,6 @@ package com.example.tmdbclient.presentation.movie
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.TokenWatcher
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -22,6 +20,7 @@ class MovieActivity : AppCompatActivity() {
 
     @Inject
     lateinit var factory: MovieViewModelFactory
+
     private lateinit var movieViewModel: MovieViewModel
     private lateinit var binding: ActivityMovieBinding
     private lateinit var adapter: MovieAdapter
@@ -67,9 +66,9 @@ class MovieActivity : AppCompatActivity() {
     private fun displayPopularMovies() {
         binding.movieProgressBar.visibility = View.VISIBLE
 
-        val responseLiveData = movieViewModel.getMovies()
+        val response = movieViewModel.getMovies()
 
-        responseLiveData.observe(this, Observer {
+        response.observe(this, Observer {
             if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
@@ -93,6 +92,7 @@ class MovieActivity : AppCompatActivity() {
             if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
+
                 binding.movieProgressBar.visibility = View.GONE
             } else {
                 binding.movieProgressBar.visibility = View.GONE
